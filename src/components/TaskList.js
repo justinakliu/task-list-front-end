@@ -13,6 +13,7 @@ const TaskList = (props) => {
           title={task.title}
           isComplete={task.isComplete}
           onSetComplete={props.onSetComplete}
+          onUnregisterTask={props.onUnregisterTask}
         />
       );
     });
@@ -31,6 +32,7 @@ TaskList.propTypes = {
     })
   ).isRequired,
   onSetComplete: PropTypes.func.isRequired,
+  onUnregisterTask: PropTypes.func.isRequired,
 };
 
 export default TaskList;

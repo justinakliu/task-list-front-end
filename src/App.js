@@ -30,13 +30,29 @@ const App = () => {
     );
   };
 
+  const unregisterTask = (id) => {
+    setTaskData((taskData) =>
+      taskData.filter((task) => {
+        return task.id != id;
+      })
+    );
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Ada&apos;s Task List</h1>
       </header>
       <main>
-        <div>{<TaskList tasks={taskData} onSetComplete={setComplete} />}</div>
+        <div>
+          {
+            <TaskList
+              tasks={taskData}
+              onSetComplete={setComplete}
+              onUnregisterTask={unregisterTask}
+            />
+          }
+        </div>
       </main>
     </div>
   );

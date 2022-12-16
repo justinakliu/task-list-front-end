@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import './Task.css';
 
 const Task = (props) => {
-  // const [complete, setComplete] = useState(isComplete);
   const buttonClass = props.isComplete ? 'tasks__item__toggle--completed' : '';
+  // what does the above code mean?
 
   return (
     <li className="tasks__item">
@@ -15,7 +15,12 @@ const Task = (props) => {
       >
         {props.title}
       </button>
-      <button className="tasks__item__remove button">x</button>
+      <button
+        className="tasks__item__remove button"
+        onClick={() => props.onUnregisterTask(props.id)}
+      >
+        x
+      </button>
     </li>
   );
 };
@@ -25,6 +30,7 @@ Task.propTypes = {
   title: PropTypes.string.isRequired,
   isComplete: PropTypes.bool.isRequired,
   onSetComplete: PropTypes.func.isRequired,
+  onUnregisterTask: PropTypes.func.isRequired,
 };
 
 export default Task;
